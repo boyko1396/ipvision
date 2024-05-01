@@ -11,7 +11,7 @@ const paths = {
 
 export const webpackConfig = (isMode) => {
   return {
-    entry: ['@babel/polyfill', path.join(paths.src, 'js/app.js')],
+    entry: ['@babel/polyfill', path.join(paths.src, 'assets/js/app.js')],
 
     mode: isMode ? 'development' : 'production',
 

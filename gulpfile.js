@@ -38,21 +38,19 @@ function watcher() {
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontStyle);
 
 /**
- * Parallel tasks in development mode
- */
-const devTasks = gulp.parallel(
-  copy,
-  copyRootFiles,
-  html,
-  scss,
-  javaScript,
-  images
-);
-
-/**
  * Main tasks
  */
-const mainTasks = gulp.series(fonts, devTasks);
+const mainTasks = gulp.series(
+  gulp.parallel(
+    copy,
+    copyRootFiles,
+    html,
+    scss,
+    javaScript,
+    images
+  ),
+  fonts // fonts тепер виконується після інших тасків
+);
 
 /**
  * Building task scenarios

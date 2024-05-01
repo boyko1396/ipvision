@@ -90,7 +90,7 @@ const fontStyle = () => {
         /** Warning if the file exists - it needs to be deleted */
         console.log(
           chalk.bold.white.bgGreenBright(
-            'The file scss/config/fonts.scss already exists.\nTo update the file, it needs to be deleted!'
+            'The file assets/scss/config/fonts.scss already exists.\nTo update the file, it needs to be deleted!'
           )
         );
       }

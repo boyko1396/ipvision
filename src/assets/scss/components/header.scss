@@ -8,7 +8,6 @@
   }
   &--type {
     &-simple {
-      background: url(../images/header-bg-gradient-blue.png) center / cover no-repeat;
       min-height: 400rem;
       @media (max-width: $lg) {
         min-height: 560rem;
@@ -20,6 +19,15 @@
         min-height: 940rem;
       }
     }
+  }
+  &__bg {
+    @extend %img-cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
   }
   &__container {
   }
