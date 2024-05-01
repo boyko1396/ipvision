@@ -1,0 +1,396 @@
+.header {
+  position: relative;
+  z-index: 998;
+  &--theme {
+    &-white {
+      color: #fff;
+    }
+  }
+  &--type {
+    &-simple {
+      background: url(../images/header-bg-gradient-blue.png) center / cover no-repeat;
+      min-height: 400rem;
+      @media (max-width: $lg) {
+        min-height: 560rem;
+      }
+      @media (max-width: $md) {
+        min-height: 720rem;
+      }
+      @media (max-width: $xs) {
+        min-height: 940rem;
+      }
+    }
+  }
+  &__container {
+  }
+  &__inner {
+    padding: 41rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+    @media (max-width: $lg) {
+      padding: 42rem 0;
+    }
+    @media (max-width: $md) {
+      padding: 60rem 0;
+    }
+    @media (max-width: $xs) {
+      margin: 0 -124rem;
+      padding: 126rem 124rem;
+    }
+  }
+  &__logo {
+    flex: 0 0 240rem;
+    position: relative;
+    transition: $transition;
+    @media (max-width: $lg) {
+      flex-basis: 300rem;
+    }
+    @media (max-width: $md) {
+      flex-basis: 450rem;
+    }
+    @media (max-width: $xs) {
+      flex-basis: 461rem;
+    }
+    &:hover {
+      text-decoration: none;
+      opacity: .66;
+    }
+    &-img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .logo-title {
+      transition: $transition;
+    }
+    .logo-subtitle {
+      transition: $transition;
+    }
+  }
+  &__dropdown {
+    background: $blackColor;
+    width: 100%;
+    height: 100%;
+    padding: 80rem 0 56rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $grayColor;
+    transition: $transition;
+    transition-property: transform, opacity, visibility;
+    z-index: 998;
+    @media (max-width: $lg) {
+      padding-bottom: 44rem;
+    }
+    @media (max-width: $md) {
+      padding-bottom: 120rem;
+    }
+    @media (max-width: $xs) {
+      height: 100vh;
+      padding: 456rem 0 0;
+      justify-content: flex-start;
+      font-size: var(--fs-3);
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    &:not(.is-show) {
+      transform: translateY(-100%);
+      pointer-events: none;
+    }
+    &-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      @media (max-width: $xs) {
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: initial;
+        align-items: flex-start;
+      }
+    }
+    &-contacts {
+      margin: 204rem -124rem 0;
+      padding: 204rem 124rem 410rem;
+      border-top: 1px solid rgba($whiteColor, .5);
+      &-email {
+        font-weight: 300;
+        color: rgba($whiteColor, .5);
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  &__aside {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &__services {
+    margin: 0 0 8rem;
+    text-transform: uppercase;
+    @media (max-width: $lg) {
+      margin-bottom: 34rem;
+    }
+    @media (max-width: $md) {
+      margin-bottom: 0;
+    }
+    @media (max-width: $xs) {
+      max-width: 100%;
+      margin: auto 0 0;
+      padding: 280rem 0 0;
+      flex: 0 0 100%;
+      font-size: var(--fs-3);
+    }
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    &-item {
+      margin: 0;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: 32rem;
+        @media (max-width: $md) {
+          margin-bottom: 48rem;
+        }
+        @media (max-width: $xs) {
+          margin-bottom: 154rem;
+        }
+      }
+    }
+    &-link {
+      display: block;
+      transition: $transition;
+      &:hover {
+        text-decoration: none;
+      }
+      .services-link__icon {
+        @media (max-width: $md) {
+        }
+        @media screen and (min-width: $xs-mf) and (max-width: $md) {
+          width: 48rem;
+          height: 48rem;
+        }
+      }
+      .services-link__title {
+        @media screen and (min-width: $xs-mf) and (max-width: $md) {
+          font-size: 1.875vw;
+        }
+      }
+      .services-link__icon--dir-ltr {
+        @media screen and (min-width: $xs-mf) and (max-width: $md) {
+          margin-right: 12rem;
+        }
+      }
+      .services-link__icon--dir-rtl {
+        @media screen and (min-width: $xs-mf) and (max-width: $md) {
+          margin-left: 12rem;
+        }
+      }
+    }
+  }
+  &__nav {
+    margin: 0 0 2rem;
+    flex-shrink: 0;
+    font-weight: 300;
+    text-align: right;
+    @media (max-width: $lg) {
+      margin-bottom: 0;
+      font-size: var(--fs-4);
+    }
+    @media (max-width: $md) {
+      font-size: 1.875vw;
+    }
+    @media (max-width: $xs) {
+      max-width: 100%;
+      flex: 0 0 100%;
+      font-size: var(--fs-3);
+      text-align: left;
+      order: -1;
+    }
+    &-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+    &-item {
+      margin: 0;
+      padding: 0;
+      &:not(:last-child) {
+        margin-bottom: 28rem;
+        @media (max-width: $lg) {
+          margin-bottom: 40rem;
+        }
+        @media (max-width: $md) {
+          margin-bottom: 38rem;
+        }
+        @media (max-width: $xs) {
+          margin-bottom: 80rem;
+        }
+      }
+    }
+    &-link {
+      @extend %area-click;
+      display: block;
+      transition: $transition;
+      &:hover {
+        text-decoration: none;
+        @media (min-width: $lg-mf) {
+          color: $whiteColor;
+        }
+      }
+    }
+  }
+  &__country {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    &-icon {
+      width: 82rem;
+      height: 82rem;
+      margin-right: 20rem;
+      flex: 0 0 82rem;
+      @media (max-width: $xs) {
+      }
+    }
+    &-title {
+      font-weight: bold;
+      font-size: var(--fs-4);
+      text-transform: uppercase;
+      white-space: nowrap;
+      @media (max-width: $xs) {
+      }
+    }
+  }
+  &__address {
+    max-width: 208rem;
+    margin-left: 60rem;
+    font-weight: 200;
+    font-size: var(--fs-8);
+    @media (max-width: $lg) {
+      max-width: 358rem;
+      margin-left: 48rem;
+    }
+    @media (max-width: $md) {
+      max-width: 440rem;
+      font-size: 1.5625vw;
+      margin-left: 28rem;
+    }
+    @media (max-width: $xs) {
+      max-width: 100%;
+      margin: 98rem 0 0;
+      font-size: var(--fs-3);
+      color: rgba($whiteColor, .5);
+    }
+  }
+  &__toggle {
+    @extend %area-click, %btn-reset;
+    width: 46rem;
+    height: 46rem;
+    margin-left: 65rem;
+    flex: 0 0 46rem;
+    color: $whiteColor;
+    cursor: pointer;
+    transition: $transition;
+    @media (max-width: $lg) {
+      width: 76rem;
+      height: 50rem;
+      margin-left: 22rem;
+      flex-basis: 76rem;
+    }
+    @media (max-width: $md) {
+      width: 90rem;
+      margin-left: 30rem;
+      flex-basis: 90rem;
+    }
+    @media (max-width: $xs) {
+      width: 154rem;
+      height: 90rem;
+      margin-left: 132rem;
+      flex-basis: 154rem;
+    }
+    &:hover {
+      text-decoration: none;
+      @media (min-width: $lg-mf) {
+        opacity: .6;
+      }
+    }
+    span {
+      background: currentColor;
+      width: 100%;
+      height: 3rem;
+      margin-top: -2rem;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transition: $transition;
+      @media (max-width: $lg) {
+        height: 4rem;
+      }
+      @media (max-width: $md) {
+        height: 2px;
+        margin-top: -1px;
+      }
+      &:nth-child(1) {
+        transform: translateY(-10rem);
+        @media (max-width: $lg) {
+          transform: translateY(-15rem);
+        }
+        @media (max-width: $md) {
+          transform: translateY(-22rem);
+        }
+        @media (max-width: $xs) {
+          transform: translateY(-36rem);
+        }
+      }
+      &:nth-child(2) {
+        transform-origin: right center;
+      }
+      &:nth-child(3) {
+        transform: translateY(10rem);
+        @media (max-width: $lg) {
+          transform: translateY(15rem);
+        }
+        @media (max-width: $md) {
+          transform: translateY(22rem);
+        }
+        @media (max-width: $xs) {
+          transform: translateY(36rem);
+        }
+      }
+    }
+    &.is-active {
+      span {
+        &:nth-child(1) {
+          transform: rotate(-45deg);
+        }
+        &:nth-child(2) {
+          transform: scaleX(0);
+        }
+        &:nth-child(3) {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+body.is-menu-opened {
+  .logo-subtitle {
+    fill: $accentColor;
+  }
+  .header__inner {
+    @media (max-width: $xs) {
+      background: $blackColor;
+    }
+  }
+}

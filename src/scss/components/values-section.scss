@@ -1,0 +1,44 @@
+.values-section {
+  padding: 70rem 0 140rem;
+  @media (max-width: $xs) {
+    padding-top: 111rem;
+    padding-bottom: 200rem;
+  }
+  &__container {
+  }
+  &__row {
+    display: flex;
+    @media (max-width: $xs) {
+      flex-wrap: wrap;
+    }
+  }
+  &__col {
+    &--title {
+      max-width: 30%;
+      flex: 0 0 30%;
+      @media (max-width: $xs) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+    &--content {
+      flex-grow: 1;
+      @media (max-width: $xs) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+    }
+  }
+  &__title {
+    margin: 0;
+    @media (max-width: $xs) {
+      margin: 0 0 96rem;
+    }
+  }
+  &__list {
+    margin: -16rem 0 0;
+    &-card {
+      border-bottom: 1px solid $blackColor;
+    }
+  }
+}
