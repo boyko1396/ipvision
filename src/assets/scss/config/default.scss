@@ -7,6 +7,18 @@ html {
   @media (min-width: $xxl-mf) {
     font-size: $siteResolutionXxl;
   }
+  @media (max-width: $xl) {
+    font-size: $siteResolutionLg;
+  }
+  @media (max-width: $lg) {
+    font-size: $siteResolutionMd;
+  }
+  @media (max-width: $md) {
+    font-size: $siteResolutionXs;
+  }
+  @media (max-width: $xs) {
+    font-size: $siteResolutionExs;
+  }
 }
 
 html,
@@ -16,8 +28,6 @@ body {
 
 body {
   background: $whiteColor;
-  // background: url(../images/proba-4.png) center -414px no-repeat;
-  // opacity: .6;
   font-style: normal;
   font-weight: $mainWeight;
   font-size: var(--fs-default);

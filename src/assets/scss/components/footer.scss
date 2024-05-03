@@ -2,14 +2,16 @@
   background: $gradient4;
   padding: 92rem 0 89rem;
   color: $whiteColor;
+  @media (max-width: $xl) {
+    padding: 58rem 0 55rem;
+  }
   @media (max-width: $lg) {
+    padding-top: 46rem;
     padding-bottom: 42rem;
   }
   @media (max-width: $md) {
-    padding: 118rem 0 76rem;
-  }
-  @media (max-width: $xs) {
-    padding: 204rem 0 194rem;
+    padding-top: 40rem;
+    padding-bottom: 40rem;
   }
   &__container {
   }
@@ -41,14 +43,13 @@
   &__link {
     font-weight: 300;
     transition: $transition;
+    @media (max-width: $xl) {
+    }
     @media (max-width: $lg) {
-      font-size: 1.25vw;
+      font-size: var(--fs-default);
     }
     @media (max-width: $md) {
-      font-size: 1.875vw;
-    }
-    @media (max-width: $xs) {
-      font-size: 51rem;
+      font-size: var(--fs-4);
     }
     &:hover {
       text-decoration: none;
@@ -58,31 +59,30 @@
     }
   }
   &__contacts {
-    @media (max-width: $lg) {
-      font-size: 1.25vw;
+    @media (max-width: $xl) {
     }
     @media (max-width: $md) {
-      font-size: 1.5625vw;
     }
     @media (max-width: $xs) {
-      font-size: 51rem;
     }
     &-email {
       margin: 0 0 36rem;
-      @media (max-width: $lg) {
-        margin-bottom: 30rem;
+      @media (max-width: $xl) {
+        margin-bottom: 22rem;
       }
-      @media (max-width: $md) {
-        margin-bottom: 44rem;
+      @media (max-width: $lg) {
+        margin-bottom: 14rem;
+      }
+      @media (max-width: $xs) {
+        margin-bottom: 7rem;
       }
       a {
         font-weight: 300;
         transition: $transition;
         @media (max-width: $md) {
-          font-size: 1.5625vw;
+          font-size: var(--fs-default);
         }
         @media (max-width: $xs) {
-          font-size: 51rem;
         }
         &:hover {
           text-decoration: none;
@@ -96,29 +96,36 @@
       margin: 0 0 102rem;
       font-weight: 300;
       line-height: $lineHeightMedium;
+      @media (max-width: $xl) {
+        max-width: 160rem;
+        margin-bottom: 64rem;
+      }
       @media (max-width: $lg) {
-        max-width: 350rem;
-        margin-bottom: 56rem;
+        max-width: 178rem;
+        margin-bottom: 28rem;
       }
       @media (max-width: $md) {
-        margin-bottom: 46rem;
+        max-width: 106rem;
+        margin-bottom: 17rem;
         line-height: 1.25;
       }
       @media (max-width: $xs) {
         max-width: 100%;
-        margin-bottom: 114rem;
+        margin-bottom: 24rem;
       }
     }
     &-copyright {
       margin: 0 32rem 0 0;
       font-weight: 300;
       opacity: .5;
+      @media (max-width: $lg) {
+        margin-right: 17rem;
+      }
       @media (max-width: $md) {
-        margin-bottom: 12rem;
-        line-height: 1.25;
+        margin: 0 0 3rem;
       }
       @media (max-width: $xs) {
-        margin-right: 44rem;
+        margin: 0 9rem 0 0;
       }
       &-wrapper {
         display: flex;
@@ -145,11 +152,14 @@
       padding: 0;
       &:not(:last-child) {
         margin-bottom: 39rem;
+        @media (max-width: $xl) {
+          margin-bottom: 25rem;
+        }
         @media (max-width: $lg) {
-          margin-bottom: 31rem;
+          margin-bottom: 15rem;
         }
         @media (max-width: $md) {
-          margin-bottom: 48rem;
+          margin-bottom: 16rem;
         }
       }
     }
@@ -157,25 +167,37 @@
   &__title {
     margin: 0 0 35rem;
     font-weight: 300;
+    @media (max-width: $xl) {
+      margin-bottom: 23rem;
+    }
     @media (max-width: $lg) {
-      margin-bottom: 54rem;
+      margin-bottom: 26rem;
     }
     @media (max-width: $md) {
-      margin-bottom: 84rem;
+      margin-bottom: 29rem;
     }
   }
   &__services {
     margin: 0 0 43rem;
     display: flex;
     flex-direction: column;
+    @media (max-width: $xl) {
+      margin-bottom: 27rem;
+    }
+    @media (max-width: $lg) {
+      margin-bottom: 0;
+    }
     &-item {
       &:not(:last-child) {
         margin-bottom: 16rem;
+        @media (max-width: $xl) {
+          margin-bottom: 10rem;
+        }
         @media (max-width: $lg) {
-          margin-bottom: 12rem;
-          @media (max-width: $md) {
-            margin-bottom: 26rem;
-          }
+          margin-bottom: 6rem;
+        }
+        @media (max-width: $md) {
+          margin-bottom: 8rem;
         }
       }
     }

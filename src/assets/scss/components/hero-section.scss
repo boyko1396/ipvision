@@ -1,13 +1,14 @@
 .hero-section {
   padding: 26rem 0;
+  @media (max-width: $xl) {
+    padding: 16rem 0;
+  }
   @media (max-width: $lg) {
-    padding: 50rem 0;
+    padding: 25rem 0;
   }
   @media (max-width: $md) {
-    padding: 70rem 0;
   }
   @media (max-width: $xs) {
-    padding: 120rem 0;
   }
   &__container {
   }
@@ -15,14 +16,17 @@
     margin: 0 0 106rem;
     font-size: var(--fs-7);
     text-align: center;
+    @media (max-width: $xl) {
+      margin-bottom: 67rem;
+    }
     @media (max-width: $lg) {
-      margin-bottom: 78rem;
+      margin-bottom: 39rem;
     }
     @media (max-width: $md) {
-      margin-bottom: 84rem;
+      margin-bottom: 28rem;
     }
     @media (max-width: $xs) {
-      margin-bottom: 62rem;
+      margin-bottom: 10rem;
       line-height: 1;
       text-align: left;
     }
@@ -35,12 +39,26 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    @media (max-width: $xl) {
+      margin-bottom: 88rem;
+    }
+    @media (max-width: $lg) {
+      margin-bottom: 82rem;
+    }
+    @media (max-width: $md) {
+      margin-bottom: 42rem;
+    }
+    @media (max-width: $xs) {
+      margin-bottom: 40rem;
+    }
     @media (max-width: $xs) {
       flex-direction: column;
       align-items: flex-start;
     }
     &-content {
       max-width: 48%;
+      @media (max-width: $xl) {
+      }
       @media (max-width: $lg) {
         max-width: 64%;
       }
@@ -55,14 +73,17 @@
         font-weight: 300;
         font-size: var(--fs-4);
         line-height: $lineHeightMedium;
-        @media (max-width: $md) {
-          font-size: 1.875vw;
+        @media (max-width: $xl) {
+          margin-bottom: 20rem;
+        }
+        @media (max-width: $lg) {
+          margin-bottom: 15rem;
         }
         @media (max-width: $md) {
-          margin-bottom: 64rem;
+          margin-bottom: 20rem;
         }
         @media (max-width: $xs) {
-          margin-bottom: 90rem;
+          margin-bottom: 17rem;
           font-size: var(--fs-4);
         }
       }
@@ -75,12 +96,18 @@
       margin: 0 0 -11rem;
       flex-shrink: 0;
       text-align: right;
+      @media (max-width: $xl) {
+        margin-bottom: -6rem;
+      }
       @media (max-width: $lg) {
-        margin-bottom: 4rem;
+        max-width: 160rem;
+        margin-bottom: 0;
       }
       @media (max-width: $xs) {
+        width: 100%;
         max-width: 100%;
-        margin: 0 0 182rem;
+        margin: 0 0 36rem;
+        text-align: left;
         order: -1;
       }
     }
@@ -90,19 +117,19 @@
     &.is-active-card-0 {
       .services-card--type-1 {
         filter: blur(4px) !important;
-        @media (max-width: $lg) {
+        @media (max-width: $xl) {
           filter: blur(2px) !important;
         }
       }
     }
     &.is-active-card-1 {
       .services-card--type-1 {
-        @media (max-width: $lg) {
+        @media (max-width: $xl) {
           filter: blur(2px) !important;
         }
       }
       .services-card--type-2 {
-        @media (max-width: $lg) {
+        @media (max-width: $xl) {
           filter: blur(1px) !important;
         }
       }
@@ -129,7 +156,7 @@
           margin-top: 60rem;
         }
         @media (max-width: $md) {
-          margin-top: 90rem;
+          margin-top: 30rem;
         }
       }
     }

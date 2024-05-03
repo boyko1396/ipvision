@@ -1,5 +1,9 @@
 $siteResolutionXxl: 1px;
 $siteResolutionXl: .05208333333vw;
+$siteResolutionLg: .08333333333vw;
+$siteResolutionMd: .10416666666vw;
+$siteResolutionXs: .15625vw;
+$siteResolutionExs: .26666666666vw;
 $mainFont: 'Inter';
 $mainWeight: 400;
 $lineHeightTitle: 1.20833333333;
@@ -70,21 +74,39 @@ $xs-mf: $xs + 1;
   --gap-fluid-: -30rem;
 
   --stack-cards-gap: 96rem;
+  @media (max-width: $xl) {
+    --fs-default: 10rem;
+    --fs-2: 50rem;
+    --fs-3: 30rem;
+    --fs-4: 15rem;
+    --fs-7: 93.7rem;
+    --fs-8: 9rem;
+
+    --stack-cards-gap: 60rem;
+  }
   @media (max-width: $lg) {
-    --fs-default: 1.25vw;
-    --fs-4: 1.66666666667vw;
-    --fs-8: 1.25vw;
+    --fs-default: 12rem;
+    --fs-2: 40rem;
+    --fs-3: 24rem;
+    --fs-4: 16rem;
+    --fs-7: 75rem;
+    --fs-8: 12rem;
+
+    --stack-cards-gap: 48rem;
   }
   @media (max-width: $md) {
-    --fs-2: 72rem;
-    --fs-4: 2.1875vw;
+    --fs-default: 10rem;
+    --fs-2: 24rem;
+    --fs-3: 16rem;
+    --fs-4: 12rem;
+    --fs-7: 50rem;
+    --fs-8: 10rem;
+
+    --stack-cards-gap: 40rem;
   }
   @media (max-width: $xs) {
-    --fs-2: 122rem;
-    --fs-3: 82rem;
-    --fs-4: 61rem;
-    --fs-7: 286rem;
-
-    --stack-cards-gap: 180rem;
+    --fs-7: 56rem;
+    --gap-fluid: 24rem;
+    --gap-fluid-: -24rem;
   }
 }

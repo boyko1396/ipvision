@@ -1,8 +1,15 @@
 .values-section {
   padding: 70rem 0 140rem;
-  @media (max-width: $xs) {
-    padding-top: 111rem;
-    padding-bottom: 200rem;
+  @media (max-width: $xl) {
+    padding-top: 57rem;
+    padding-bottom: 88rem;
+  }
+  @media (max-width: $lg) {
+    padding-bottom: 75rem;
+  }
+  @media (max-width: $md) {
+    padding-top: 20rem;
+    padding-bottom: 40rem;
   }
   &__container {
   }
@@ -32,11 +39,23 @@
   &__title {
     margin: 0;
     @media (max-width: $xs) {
-      margin: 0 0 96rem;
+      margin-bottom: 16rem;
     }
   }
   &__list {
     margin: -16rem 0 0;
+    @media (max-width: $xl) {
+      margin-top: -12rem;
+    }
+    @media (max-width: $lg) {
+      margin-top: -10rem;
+    }
+    @media (max-width: $md) {
+      margin-top: -8rem;
+    }
+    @media (max-width: $xs) {
+      margin-top: 0;
+    }
     &-card {
       border-bottom: 1px solid $blackColor;
     }
