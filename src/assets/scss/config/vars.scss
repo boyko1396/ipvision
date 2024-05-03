@@ -68,6 +68,8 @@ $xs-mf: $xs + 1;
   --gap-: -5rem;
   --gap-fluid: 30rem;
   --gap-fluid-: -30rem;
+
+  --stack-cards-gap: 96rem;
   @media (max-width: $lg) {
     --fs-default: 1.25vw;
     --fs-4: 1.66666666667vw;
@@ -82,5 +84,7 @@ $xs-mf: $xs + 1;
     --fs-3: 82rem;
     --fs-4: 61rem;
     --fs-7: 286rem;
+
+    --stack-cards-gap: 180rem;
   }
 }

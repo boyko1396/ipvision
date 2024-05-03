@@ -86,53 +86,52 @@
     }
   }
   &__list {
-    &-card {
-      // position: sticky;
-      // transition: all .4s;
-      // &:nth-child(2).is-collapsed ~ &:nth-child(4) {
-      //   margin-bottom: -400rem;
-      //   transform: translateY(-464rem) !important;
-      // }
-      // &:nth-child(4).is-collapsed ~ &:nth-child(6) {
-      //   margin-bottom: -400rem;
-      //   transform: translateY(-464rem) !important;
-      // }
-      // &:nth-child(2) {
-      //   top: 140rem;
-      //   &.is-collapsed {
-      //   }
-      // }
-      // &:nth-child(4) {
-      //   top: 700rem;
-      //   &.is-collapsed {
-      //   }
-      // }
-      // &:nth-child(6) {
-      //   top: 796rem;
-      //   &.is-collapsed {
-      //   }
-      // }
-      &:not(:last-child) {
-        margin-bottom: 100rem;
+    position: relative;
+    &.is-active-card-0 {
+      .services-card--type-1 {
+        filter: blur(4px) !important;
         @media (max-width: $lg) {
-          margin-bottom: 60rem;
+          filter: blur(2px) !important;
+        }
+      }
+    }
+    &.is-active-card-1 {
+      .services-card--type-1 {
+        @media (max-width: $lg) {
+          filter: blur(2px) !important;
+        }
+      }
+      .services-card--type-2 {
+        @media (max-width: $lg) {
+          filter: blur(1px) !important;
+        }
+      }
+    }
+    &-wrapper {
+    }
+    &-card {
+      position: sticky;
+      top: 140px;
+      transition: all .07s;
+      transform-origin: center top;
+      @media (max-width: $lg) {
+        top: 90px;
+      }
+      &:nth-child(1) {
+      }
+      &:nth-child(2) {
+      }
+      &:nth-child(3) {
+      }
+      & + & {
+        margin-top: 100rem;
+        @media (max-width: $lg) {
+          margin-top: 60rem;
         }
         @media (max-width: $md) {
-          margin-bottom: 90rem;
+          margin-top: 90rem;
         }
       }
     }
   }
-}
-
-.myObserver1,
-.myObserver2,
-.myObserver3 {
-  height: 1px;
-  width: 1px;
-  margin-top: -1px;
-  pointer-events: none;
-  position: absolute;
-  z-index: -1;
-  overflow: hidden;
 }
