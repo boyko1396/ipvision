@@ -14,13 +14,32 @@ import FaqCard from './modules/FaqCard.js';
 import TextareaAutoresizer from './modules/TextareaAutoresizer.js';
 import PhoneMask from './modules/PhoneMask.js';
 import * as Util from './libs/utils.min.js';
-// import TabsDocument from './modules/TabsDocument.js';
+import TabsDocument from './modules/TabsDocument.js';
+import ScrollNavigationHighlight from './modules/ScrollNavigationHighlight.js';
 
 BaseHelpers.checkWebpSupport();
 BaseHelpers.addTouchClass();
 BaseHelpers.addLoadedClass();
 
 document.addEventListener('DOMContentLoaded', function() {
+  function setEqualHeight() {
+    const blocks = document.querySelectorAll('.js-equal-height');
+    let maxHeight = 0;
+
+    blocks.forEach(function(block) {
+      block.style.height = 'auto';
+      const blockHeight = block.offsetHeight;
+      maxHeight = Math.max(maxHeight, blockHeight);
+    });
+
+    blocks.forEach(function(block) {
+      block.style.height = maxHeight + 'px';
+    });
+  }
+
+  window.addEventListener('load', setEqualHeight);
+  window.addEventListener('resize', setEqualHeight);
+
   // header nav mobile toggle
   const headerBtnToggle = new HeaderBtnToggle();
 
@@ -32,6 +51,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // mask phone
   new PhoneMask('.js-phone-mask');
+
+  // nav about scroll
+  const scrollNavHighlight = new ScrollNavigationHighlight();
+  scrollNavHighlight.init();
+
+  // tabs document
+  const tabsDocument = new TabsDocument();
 
   // stacking cards
   (function() {
@@ -113,71 +139,70 @@ document.addEventListener('DOMContentLoaded', function() {
       element.element.removeChild(node);
     };
 
-function animateStackCards() {
-  if (isNaN(this.marginY)) { 
-    this.scrolling = false;
-    return; 
-  }
-
-  var top = this.element.getBoundingClientRect().top;
-
-  if (this.cardTop - top + this.element.windowHeight - this.elementHeight - this.cardHeight + this.marginY + this.marginY * this.items.length > 0) { 
-    this.scrolling = false;
-    return;
-  }
-
-  var lastCollapsedIndex = -1;
-
-  for (var i = 0; i < this.items.length; i++) { 
-    var scrolling = this.cardTop - top - i * (this.cardHeight + this.marginY);
-    if (scrolling > 0) {
-      var scaling;
-      if (window.innerWidth < 640) {
-        scaling = i == this.items.length - 1 ? 1 : (this.cardHeight - scrolling * 0.084) / this.cardHeight;
-      } else {
-        scaling = i == this.items.length - 1 ? 1 : (this.cardHeight - scrolling * 0.05) / this.cardHeight;
+    function animateStackCards() {
+      if (isNaN(this.marginY)) { 
+        this.scrolling = false;
+        return; 
       }
-      this.items[i].style.transform = 'translateY(' + this.marginY * i + 'px) scale(' + scaling + ')';
 
-      var blurValue;
-      if (i === 0) {
-        blurValue = Math.min(scrolling / (this.cardHeight + this.marginY) * 2.1, 2.1);
-      } else if (i === 1) {
-        blurValue = Math.min(scrolling / (this.cardHeight + this.marginY) * 2, 2);
-      } else {
-        blurValue = 0;
+      var top = this.element.getBoundingClientRect().top;
+
+      if (this.cardTop - top + this.element.windowHeight - this.elementHeight - this.cardHeight + this.marginY + this.marginY * this.items.length > 0) { 
+        this.scrolling = false;
+        return;
       }
-      this.items[i].style.filter = 'blur(' + blurValue + 'px)';
-      
-      if (i < this.items.length - 1 && blurValue === (i === 0 ? 2.1 : 2)) {
-        this.items[i].classList.add('is-collapsed');
-        lastCollapsedIndex = i;
-      } else {
-        this.items[i].classList.remove('is-collapsed');
+
+      var lastCollapsedIndex = -1;
+
+      for (var i = 0; i < this.items.length; i++) { 
+        var scrolling = this.cardTop - top - i * (this.cardHeight + this.marginY);
+        if (scrolling > 0) {
+          var scaling;
+          if (window.innerWidth < 640) {
+            scaling = i == this.items.length - 1 ? 1 : (this.cardHeight - scrolling * 0.084) / this.cardHeight;
+          } else {
+            scaling = i == this.items.length - 1 ? 1 : (this.cardHeight - scrolling * 0.05) / this.cardHeight;
+          }
+          this.items[i].style.transform = 'translateY(' + this.marginY * i + 'px) scale(' + scaling + ')';
+
+          var blurValue;
+          if (i === 0) {
+            blurValue = Math.min(scrolling / (this.cardHeight + this.marginY) * 2.1, 2.1);
+          } else if (i === 1) {
+            blurValue = Math.min(scrolling / (this.cardHeight + this.marginY) * 2, 2);
+          } else {
+            blurValue = 0;
+          }
+          this.items[i].style.filter = 'blur(' + blurValue + 'px)';
+          
+          if (i < this.items.length - 1 && blurValue === (i === 0 ? 2.1 : 2)) {
+            this.items[i].classList.add('is-collapsed');
+            lastCollapsedIndex = i;
+          } else {
+            this.items[i].classList.remove('is-collapsed');
+          }
+        } else {
+          this.items[i].style.transform = 'translateY(' + this.marginY * i + 'px)';
+          this.items[i].style.filter = 'blur(0px)';
+          this.items[i].classList.remove('is-collapsed');
+        }
       }
-    } else {
-      this.items[i].style.transform = 'translateY(' + this.marginY * i + 'px)';
-      this.items[i].style.filter = 'blur(0px)';
-      this.items[i].classList.remove('is-collapsed');
+
+      var stackCardsElement = document.querySelector('.js-stack-cards');
+      if (stackCardsElement) {
+        var activeCardClass = 'is-active-card-' + lastCollapsedIndex;
+        
+        for (var i = 0; i < this.items.length; i++) { 
+          stackCardsElement.classList.remove('is-active-card-' + i);
+        }
+
+        if (lastCollapsedIndex !== -1) {
+          stackCardsElement.classList.add(activeCardClass);
+        }
+      }
+
+      this.scrolling = false;
     }
-  }
-
-  var stackCardsElement = document.querySelector('.js-stack-cards');
-  if (stackCardsElement) {
-    var activeCardClass = 'is-active-card-' + lastCollapsedIndex;
-    
-    for (var i = 0; i < this.items.length; i++) { 
-      stackCardsElement.classList.remove('is-active-card-' + i);
-    }
-
-    if (lastCollapsedIndex !== -1) {
-      stackCardsElement.classList.add(activeCardClass);
-    }
-  }
-
-  this.scrolling = false;
-}
-
 
     var stackCards = document.getElementsByClassName('js-stack-cards'),
       intersectionObserverSupported = ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window && 'intersectionRatio' in window.IntersectionObserverEntry.prototype),
@@ -206,6 +231,4 @@ function animateStackCards() {
       };
     }
   }());
-  // tabs document
-  // const tabsDocument = new TabsDocument();
 });

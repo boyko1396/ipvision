@@ -3,6 +3,9 @@ html{-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size
 
 html {
   font-size: $siteResolutionXl;
+  transition: all .6s;
+  transition-property: visible, opacity;
+  transition-delay: .3s;
   scroll-behavior: smooth;
   @media (min-width: $xxl-mf) {
     font-size: $siteResolutionXxl;
@@ -18,6 +21,10 @@ html {
   }
   @media (max-width: $xs) {
     font-size: $siteResolutionExs;
+  }
+  &:not(.is-loaded) {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -82,6 +89,7 @@ h3,
 h4,
 h5,
 h6,
+.title,
 .title-size-1,
 .title-size-2,
 .title-size-3,

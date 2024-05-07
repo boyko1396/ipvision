@@ -25,7 +25,6 @@
   &__col {
     max-width: 100%;
     min-height: 1rem;
-    flex-shrink: 0;
     @for $i from 1 through 10 {
       &--#{$i} {
         @extend .row__col;
