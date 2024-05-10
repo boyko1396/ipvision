@@ -61,7 +61,7 @@
   &__poster {
     margin: calc(-1 * var(--rhythm-13)) 0 0;
     @media (max-width: $xl) {
-      margin-top: -48rem;
+      margin-top: -38rem;
     }
     @media (max-width: $lg) {
       margin-top: -40rem;
@@ -160,6 +160,9 @@
     &-address {
       max-width: 360rem;
       margin: 0 0 var(--rhythm-9);
+      @media (max-width: $xl) {
+        max-width: 220rem;
+      }
       @media (max-width: $lg) {
         max-width: 168rem;
         margin-bottom: 40rem;
