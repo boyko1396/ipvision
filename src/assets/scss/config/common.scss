@@ -214,6 +214,9 @@
   }
   p {
     margin: 0 0 .34em;
+    strong {
+      font-weight: bolder;
+    }
   }
   h4.content__h {
     &-mb {
