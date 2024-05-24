@@ -81,4 +81,31 @@
   }
   &__main {
   }
+  &__footer {
+    padding-top: var(--fs-2);
+    &-action {
+      margin: 0 -4rem;
+      flex-wrap: nowrap;
+      @media (max-width: $md) {
+        flex-wrap: wrap;
+      }
+      &-item {
+        max-width: 33.33%;
+        padding: 0 4rem;
+        flex: 0 0 33.33%;
+        @media (max-width: $md) {
+          max-width: 100%;
+          flex-basis: 100%;
+        }
+        &:not(:last-child) {
+          @media (max-width: $md) {
+            margin-bottom: 8rem;
+          }
+        }
+      }
+      &-btn {
+        width: 100%;
+      }
+    }
+  }
 }
